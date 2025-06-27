@@ -29,5 +29,8 @@ class `Rock paper scissor kata should` {
 }
 
 fun rockPaperScissorsGame(playerOne: String, playerTwo: String): String {
+    if (playerOne == "Scissor") {
+        return "PlayerTwo"
+    }
     return "PlayerOne"
 }
