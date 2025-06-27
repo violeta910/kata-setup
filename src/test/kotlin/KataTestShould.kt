@@ -17,5 +17,5 @@ class `Rock paper scissor kata should` {
 }
 
 fun rockPaperScissorsGame(playerOne: String, playerTwo: String): String {
-    TODO("Not yet implemented")
+    return "PlayerOne"
 }
