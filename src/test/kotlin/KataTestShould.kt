@@ -50,8 +50,8 @@ class `Rock paper scissors kata should` {
 }
 
 fun rockPaperScissorsGame(playerOneMove: String, playerTwoMove: String): String {
-    if (playerOneMove == "Rock" && playerTwoMove == "Rock") {
-        return "Draw"
+    if (playerOneMove == "Rock" && playerTwoMove == "Scissors") {
+        return "PlayerOne"
     }
 
     if (playerOneMove == "Scissors") {
@@ -62,5 +62,5 @@ fun rockPaperScissorsGame(playerOneMove: String, playerTwoMove: String): String 
         return "PlayerTwo"
     }
 
-    return "PlayerOne"
+    return "Draw"
 }
