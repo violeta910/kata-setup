@@ -16,10 +16,22 @@ class `Rock paper scissor kata should` {
     }
 
     @Test
-    fun `when player one plays scissors and player two plays rock player one two`() {
+    fun `when player one plays scissors and player two plays rock player one wins`() {
         //Arrange
         val playerOneMove = "Scissor"
         val playerTwoMove = "Rock"
+        val expected = "PlayerTwo"
+        //Act
+        val actual = rockPaperScissorsGame(playerOneMove, playerTwoMove)
+        //Assert
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `when player one plays rock and player two plays paper player one wins`() {
+        //Arrange
+        val playerOneMove = "Rock"
+        val playerTwoMove = "Paper"
         val expected = "PlayerTwo"
         //Act
         val actual = rockPaperScissorsGame(playerOneMove, playerTwoMove)
