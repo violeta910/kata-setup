@@ -1,5 +1,8 @@
+import org.example.Result
+import org.example.rockPaperScissorsGame
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
+
 
 class `Rock paper scissors kata should` {
 
@@ -8,23 +11,21 @@ class `Rock paper scissors kata should` {
         //Arrange
         val playerOneMove = "Rock"
         val playerTwoMove = "Scissors"
-        val expected = "PlayerOne"
         //Act
         val actual = rockPaperScissorsGame(playerOneMove, playerTwoMove)
         //Assert
-        assertEquals(expected, actual)
+        assertEquals(Result.ONE, actual)
     }
 
     @Test
-    fun `when player one plays scissors and player two plays rock player one wins`() {
+    fun `when player one plays scissors and player two plays rock player two wins`() {
         //Arrange
         val playerOneMove = "Scissors"
         val playerTwoMove = "Rock"
-        val expected = "PlayerTwo"
         //Act
         val actual = rockPaperScissorsGame(playerOneMove, playerTwoMove)
         //Assert
-        assertEquals(expected, actual)
+        assertEquals(Result.TWO, actual)
     }
 
     @Test
@@ -32,35 +33,16 @@ class `Rock paper scissors kata should` {
         //Arrange
         val playerOneMove = "Rock"
         val playerTwoMove = "Paper"
-        val expected = "PlayerTwo"
         //Act
         val actual = rockPaperScissorsGame(playerOneMove, playerTwoMove)
         //Assert
-        assertEquals(expected, actual)
+        assertEquals(Result.TWO, actual)
     }
 
     @Test
     fun `when player one plays rock and player two plays rock it should be a draw`() {
         val move = "Rock"
         val actual = rockPaperScissorsGame(move, move)
-        val expected = "Draw"
-
-        assertEquals(expected, actual)
+        assertEquals(Result.DRAW, actual)
     }
-}
-
-fun rockPaperScissorsGame(playerOneMove: String, playerTwoMove: String): String {
-    if (playerOneMove == "Rock" && playerTwoMove == "Scissors") {
-        return "PlayerOne"
-    }
-
-    if (playerOneMove == "Scissors") {
-        return "PlayerTwo"
-    }
-
-    if (playerTwoMove == "Paper") {
-        return "PlayerTwo"
-    }
-
-    return "Draw"
 }
