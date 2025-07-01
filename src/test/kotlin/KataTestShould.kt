@@ -44,5 +44,10 @@ fun rockPaperScissorsGame(playerOneMove: String, playerTwoMove: String): String 
     if (playerOneMove == "Scissor") {
         return "PlayerTwo"
     }
+
+    if (playerTwoMove == "Paper") {
+        return "PlayerTwo"
+    }
+
     return "PlayerOne"
 }
