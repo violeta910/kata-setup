@@ -38,6 +38,15 @@ class `Rock paper scissors kata should` {
         //Assert
         assertEquals(expected, actual)
     }
+
+    @Test
+    fun `when player one plays rock and player two plays rock it should be a draw`() {
+        val move = "Rock"
+        val actual = rockPaperScissorsGame(move, move)
+        val expected = "Draw"
+
+        assertEquals(expected, actual)
+    }
 }
 
 fun rockPaperScissorsGame(playerOneMove: String, playerTwoMove: String): String {
