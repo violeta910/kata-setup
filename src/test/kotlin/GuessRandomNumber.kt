@@ -16,4 +16,14 @@ class `Guess random number should` {
         assertEquals(expected, actual)
     }
 
+    @Test
+    fun `player not wins on the first attempt because the random number is higher`() {
+
+        val game = GuessRandomNumberGame()
+        val actual = game.guess(3)
+        val expected = "Higher"
+
+        assertEquals(expected, actual)
+    }
+
 }
