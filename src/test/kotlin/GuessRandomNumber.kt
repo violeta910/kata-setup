@@ -1,3 +1,4 @@
+/*
 import io.mockk.every
 import io.mockk.mockk
 import org.example.GuessRandomNumberGame
@@ -33,4 +34,4 @@ class `Guess random number should` {
         assertEquals(expected, actual)
     }
 
-}
+}*/

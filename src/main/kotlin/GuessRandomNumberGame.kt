@@ -1,4 +1,4 @@
-package org.example
+/*package org.example
 
 import org.example.org.example.RandomNumberGenerator
 
@@ -12,4 +12,4 @@ class GuessRandomNumberGame {
         return "Win"
     }
 
-}
+}*/
