@@ -17,18 +17,18 @@ class DiceGameShould {
     @Test
     fun `when player throws dice three times then the score is the sum of all values thrown`() {
         // Act
-        val result = throwDiceThreeTimes();
+        val result = throwDiceThreeTimes()
 
         // Assert
         assertTrue(3 <= result && result <= 18, "Score should be between 3 and 18")
     }
 
     private fun throwDiceThreeTimes(): Int {
-        val throwFirstResult = Random.nextInt(1, 7);
-        val throwSecondResult = Random.nextInt(1, 7);
-        val throwThirdResult = Random.nextInt(1, 7);
+        val throwFirstResult = Random.nextInt(1, 7)
+        val throwSecondResult = Random.nextInt(1, 7)
+        val throwThirdResult = Random.nextInt(1, 7)
 
-        return throwFirstResult + throwSecondResult + throwThirdResult;
+        return throwFirstResult + throwSecondResult + throwThirdResult
     }
 
 }
