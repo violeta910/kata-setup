@@ -1,3 +1,4 @@
+import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
@@ -15,18 +16,19 @@ class DiceGameShould {
 
     @Test
     fun `when player throws dice three times then the score is the sum of all values thrown`() {
-        // Arrange
-        val dice = 6;
-
         // Act
-        val result = throwDiceThreeTimes(dice);
+        val result = throwDiceThreeTimes();
 
         // Assert
         assertTrue(3 <= result && result <= 18, "Score should be between 3 and 18")
     }
 
-    private fun throwDiceThreeTimes(dice: Int): Int {
-        return 0;
+    private fun throwDiceThreeTimes(): Int {
+        val throwFirstResult = Random.nextInt(1, 7);
+        val throwSecondResult = Random.nextInt(1, 7);
+        val throwThirdResult = Random.nextInt(1, 7);
+
+        return throwFirstResult + throwSecondResult + throwThirdResult;
     }
 
 }
