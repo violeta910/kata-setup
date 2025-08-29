@@ -8,6 +8,11 @@ class MorningRoutine(val clock: Clock, val printer: Printer) {
             printer.println("Read and study")
             return
         }
+
+        if (currentTime.hour in 8..8) {
+            printer.println("Have breakfast")
+        }
+
         printer.println("Do exercise")
     }
 }
