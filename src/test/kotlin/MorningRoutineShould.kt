@@ -41,6 +41,22 @@ class MorningRoutineShould {
         // assert
         verify { printerSpy.println("Read and study")}
     }
+
+    @Test
+    fun `Given the current time is between 0800 and 0859 when I request the routine activity then the system should display 'Have breakfast'`(){
+        // arrange
+        val clockStub = mockk<Clock>()
+        val printerSpy = spyk<Printer>()
+        val mourningRoutine = MorningRoutine(clockStub, printerSpy)
+
+        every { clockStub.now() } returns LocalTime.of(8, 30)
+
+        // act
+        mourningRoutine.whatShouldIDoNow()
+
+        // assert
+        verify { printerSpy.println("Have breakfast")}
+    }
 }
 
 
