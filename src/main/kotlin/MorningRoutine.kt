@@ -4,6 +4,6 @@ class MorningRoutine(val clock: Clock, val printer: Printer) {
 
     fun whatShouldIDoNow() {
         val currentTime = clock.now()
-        printer.println("XXX")
+        printer.println("Do exercise")
     }
 }
