@@ -6,6 +6,7 @@ import org.example.Clock
 import org.example.MorningRoutine
 import org.example.Printer
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 import java.time.LocalTime
@@ -38,6 +39,18 @@ class MorningRoutineShould {
 
         // assert
         verify { printerSpy.println(activity)}
+    }
+
+    @Test
+    fun `Given the current time is before 0559 when I request the routine activity then the system should display 'No activity'`(){
+        // arrange
+        every { clockStub.now() } returns LocalTime.of(5, 59)
+
+        // act
+        mourningRoutine.whatShouldIDoNow()
+
+        // assert
+        verify { printerSpy.println("No activity")}
     }
 }
 
