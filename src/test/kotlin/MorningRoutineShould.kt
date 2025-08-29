@@ -42,7 +42,7 @@ class MorningRoutineShould {
     }
 
     @Test
-    fun `Given the current time is before 0559 when I request the routine activity then the system should display 'No activity'`(){
+    fun `Given the current time is before 0600 when I request the routine activity then the system should display 'No activity'`(){
         // arrange
         every { clockStub.now() } returns LocalTime.of(5, 59)
 
