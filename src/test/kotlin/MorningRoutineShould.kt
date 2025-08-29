@@ -6,7 +6,8 @@ import org.example.Clock
 import org.example.MorningRoutine
 import org.example.Printer
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 import java.time.LocalTime
 
 class MorningRoutineShould {
@@ -22,40 +23,21 @@ class MorningRoutineShould {
         mourningRoutine = MorningRoutine(clockStub, printerSpy)
     }
 
-    @Test
-    fun `Given the current time is between 0600 and 0659 when I request the routine activity then the system should display 'Do exercise'`(){
+    @ParameterizedTest
+    @CsvSource(
+        "6, Do exercise",
+        "7, Read and study",
+        "8, Have breakfast",
+    )
+    fun `Given the current time is between x and x59 when I request the routine activity then the system should display the current activity`(hour: Int, activity: String){
         // arrange
-        every { clockStub.now() } returns LocalTime.of(6, 30)
+        every { clockStub.now() } returns LocalTime.of(hour, 30)
 
         // act
         mourningRoutine.whatShouldIDoNow()
 
         // assert
-        verify { printerSpy.println("Do exercise")}
-    }
-
-    @Test
-    fun `Given the current time is between 0700 and 0759 when I request the routine activity then the system should display 'Read and study'`(){
-        // arrange
-        every { clockStub.now() } returns LocalTime.of(7, 30)
-
-        // act
-        mourningRoutine.whatShouldIDoNow()
-
-        // assert
-        verify { printerSpy.println("Read and study")}
-    }
-
-    @Test
-    fun `Given the current time is between 0800 and 0859 when I request the routine activity then the system should display 'Have breakfast'`(){
-        // arrange
-        every { clockStub.now() } returns LocalTime.of(8, 30)
-
-        // act
-        mourningRoutine.whatShouldIDoNow()
-
-        // assert
-        verify { printerSpy.println("Have breakfast")}
+        verify { printerSpy.println(activity)}
     }
 }
 
